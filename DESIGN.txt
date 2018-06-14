@@ -1,0 +1,79 @@
+Jackie Xu, Yedoh Kang, Winnie Chen
+Systems Period 4
+Final Project
+
+
+Project Idea:
+We are a recreating the game, Battleship, using networking across two computers. Each player has 5 ships: a 5-square
+aircraft carrier, a 4-square battleship, a 3-square cruiser, a 3-square submarine, and a 2-square destroyer. When the game
+starts, players choose where they want to position their ships. The game will continue prompting the users to enter
+locations to send missiles, and will display updated boards with the proper miss/hit symbols. When a ship sinks, a message
+will display which one it is. The game ends when one person sinks all of the opponent’s ships, and proper ending screens
+will display.
+
+
+User Interface:
+Our game will be played in the shell. To start the game, the players will enter "battleship" followed by either 1 or 2, 
+depending on which player they are (player 1 or player 2). The home territory will be displayed on the left side, and the 
+opponent’s territory will be displayed on the right. The grids will be 10x10; the columns will be labeled A-J, and the row 
+labeled 0-9. For placing, player enters starting coordinate, type of ship (A, B, C, S, or D), and direction (L, R, U, D). If the 
+ship goes off the screen, an error message will display. For hitting, player only enters a coordinate.
+
+Symbols Used In Shell:
+	Both Home and Opponent:
+	- empty slot: . (black)
+	- hit: H (red)
+	- miss: * (white)
+	Just Home:
+	- un-hit ship coordinate: first letter of ship name (A, B, C, S, or D) (green)
+
+
+Technical Design:
+We are using networking between two computers. We will use semaphores to control the files, and pipes to share them.
+
+Role Assignment:
+	Jackie:
+	- changing files & display
+	Yedoh:
+	- receive & store user input
+	Winnie:
+	- receive & store user input
+
+Data Structures:
+- struct ship: the info of each ship
+	- char * type, struct * coors
+- struct coor: coordinates
+	- int col, char row
+- char ** board: grids
+	- empty slot: .
+	- hit: H
+	- miss: *
+	- un-hit ship coordinate: first letter of ship name (A, B, C, S, or D)
+- socket: to transfer information
+	- just stores boards
+
+Algorithms:
+1. after receiving ship placement: calculate all coordinates and prints error message if off board
+					edits structs and grid based on coordinates
+					both players send their home boards so both players have each other's boards stored
+2. while loop for playing input: blocks when it's the other player's turn
+					other player sends info to current player (the coordinates of their move)
+					current player attack() function is used to change their own board
+					current player prints both boards
+			    current player enters a valid move and the attack() function is used to change opponent board
+					current player prints both boards again
+3. ending conditions: when all ships on one board have sunken
+					print win/loss messages for each player
+
+Bonus:
+1. change data point enter into one "word": A0 instead of A 0
+2. change data input to work with lowercase letters
+3. change display so home and opponent are side by side
+
+Timeline:
+	12.26.17: set up program files (.h, .c, makefile)
+	12.27.17: set up data structures
+	12.28.17: display and receive user input (on one computer with two processes)
+	12.29.17: finish with placing ships for both users
+	01.02.18: functioning data storage and display hit/miss
+	01.05.18: fully working on one computer

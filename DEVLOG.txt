@@ -1,0 +1,111 @@
+xuJ (kangY, chenW) -- 2017-12-21 11:01
+	finished most of DESIGN.txt
+
+xuJ (kangY, chenW) -- 2017-12-22 11:09
+	finished DESIGN.txt and created a basic README.md
+
+kangY -- 2017-12-22 11:20
+	added repo as submodule to enterprise & emailed Mr. DW about looking over DESIGN.txt early
+
+xuJ -- 2017-12-26 17:57
+  	added basics of display function, waiting for data structures for the rest
+
+kangY -- 2017-12-26 10:45
+	debugged and fixed display function, created data structures for all ships
+
+xuJ -- 2017-12-27 22:56
+	added initialize_board, print_board, and display
+
+chenW -- 2017-12-28 23:06
+	added function headers for placement phase
+
+kangY -- 2017-12-30 8:15
+	fixed format of text in the terminal
+
+chenW -- 2017-12-31 22:26
+	parsed input for ship placement phase and added placement phase loop
+
+kangY -- 2018-01-02 2:35
+	worked on placement_valid function, specifically if col and row were valid
+
+xuJ -- 2018-01-03 11:12
+	finished place_ship and tested, but the error testing has not been implemented yet
+	added encrypt_board which be used for opponent board
+
+chenW -- 2018-01-03 22:37
+	changed row variable from int to char and adjusted program accordingly
+	fixed token check for parse_placement
+	rearranged function calls in placement phase loop
+
+kangY -- 2018-01-04 00:15
+	changed formatting characters (chenW's request)
+	debugged and fixed up/down regarding placement (xuJ's request)
+	finished placement_valid (checked if ships were already placed, and for any overlapping and/or out-of-bound errors)
+	printed out ships that were already placed
+
+xuJ -- 2018-01-05 12:13
+	wrote the functions to test if game is over to start the game play
+
+kangY -- 2018-01-08 11:09
+	made char board[10][10] into a char **, making it dynamic
+	changed all the char board[10][10] to the char ** by using structs
+
+xuJ -- 2018-01-09 11:11
+	fixed the formatting so that the window will seem to "refresh" after every input
+	changed the grid to 8x8 (the board game version)
+
+xuJ -- 2018-01-10 12:30
+	changed the formatting and input for the setup phase to be more user-friendly
+	added the instructions for the playing phase
+
+kangY -- 2018-01-10 4:51
+	fixed char array so that every time the user places a ship, the available ships and sizes are shown
+
+xuJ -- 2018-01-18 10:52
+	added functions for playing phase but there's a seg fault I haven't figured out yet
+
+xuJ -- 2018-01-19 10:43
+	completed the README file
+
+chenW -- 2018-01-20 23:46
+	fixed merge conflicts and looping print
+	split code and started networking files
+
+kangY -- 2018-01-21 22:58
+	edited the README file (added instructions & period, fixed format)
+
+kangY, chenW -- 2018-01-22 13:51
+	finished establishing network connection (not all errors handled)
+
+kangY, chenW -- 2018-01-22 15:14
+	fixed the seg fault
+	worked on playing phase (still need to continue and finish)
+
+kangY, chenW -- 2018-01-23 13:20
+	fixed seg fault
+	fixed printing opponent board
+
+chenW -- 2018-01-23 23:31
+	finished reading and turn-taking in playing phase
+
+kangY -- 2018-01-24 11:51
+	edited format of code
+	added print statements for player's turns
+
+xuJ -- 2018-01-24 14:21
+	revised display so for clarity, and displays which ship has been hit
+	revised the code that checks that missile coordinates have not been entered before
+
+xuJ -- 2018-01-25 14:05
+	made the board colorful and fixed the messages printed during gameplay
+	
+chenW, kangY, xuJ -- 2018-01-25 15:17
+	fixed out-of-bound errors for both ship placement and missile placement
+	fixed format
+	
+chenW, kangY, xuJ -- 2018-01-25 15:42
+	added function headers in battleship.h
+	added comments
+	cleaned up code
+	fixed format
+	be able to take in lowercase inputs
